@@ -1,10 +1,4 @@
----
-title: Parallel Programming HW1
-
----
-
 # Parallel Programming HW1
-
 
 ## Implementation
 1. How do you handle an arbitrary number of input items and processes?
