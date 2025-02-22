@@ -57,5 +57,3 @@ Odd-Event Sort 會分成Even Phase & Odd Phase，Even Phase 時rank為偶數的p
 
 在原先的做法中本來有early stopping的機制，但因為上課時老師有提到branch會讓效能變差，為了達到early stopping也必須先做Allreduce來檢查是否完成所有的排序，增加了溝通的成本，所以一個優化方法就是拿掉這個early stoping的機制，讓他做fully iteration。
 實驗結果有略為減少一點時間，特別是在communication time上獲得了進步，但這也增加了computation的負擔，所以就最後的結果來說並沒有顯著的優化成效。
-## Experiences / Conclusion
-這是我第一次寫平行程式，一開始我覺得最困難的地方是要轉換自己的思維，把sequential執行的計算，想辦法拆分讓好幾個process可以一起做。但後面在進行實驗想辦法優化、加速的時候，才發現比起對單一process的任務做優化，重點可能還是在於整個平行程式的設計，而其中涉及一些演算法和計算機結構、作業系統的知識，如何整合這些技術以及活用，這才是真正困難所在的地方。

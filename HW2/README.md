@@ -171,7 +171,3 @@ $$
 根據上面的實驗結果，可以看到這Pthread和Hybrid版本其實都scale得不錯，我想是因為Mandelbrot set的特性可以很好的被平行化來運算，而且大部分是可以獨立計算的，因此可以減少掉很多溝通成本。
 #### Compare and discuss the load balance of your implementations
 從Experiment 3可以看出來在Hybrid的process小於10的狀況下，Pthread版本和Hybrid版本都有相當好的負載平衡度，但Hybrid版本在使用很多process的狀況下，MPI process之間的分配就有較大的可能會負載失衡。
-## Experience & Conclusion
-在這次作業中主要的優化都是在研究如何做load balancing以及透過vectorization來加速，感覺有比第一次作業時更加的進步，比較有概念優化要往哪個方向去做，並且分析可能的瓶頸或是出bug的地方，然後進行修正。從speedup factor的結果也可以看到，程式有更高的平行度了，就還蠻有成就感的。
-
-不過這次有遇到一些比較神奇的bug，像是在使用avx512的時候，compile用O1會過、用O3就不會過了，這似乎是不同優化程度會讓avx512有不同的表現，而這是我過去寫程式比較不會去思考到的問題。
